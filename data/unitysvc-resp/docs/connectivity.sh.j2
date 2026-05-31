@@ -1,0 +1,30 @@
+#!/bin/bash
+# Connectivity test for resp:// direct-response services.
+#
+# These services have NO real upstream. The offering's base_url is
+# "resp://<status>", so the UnitySVC gateway synthesizes a <status>
+# response itself instead of proxying anywhere (unitysvc/unitysvc#1188).
+# The expected status is read from that base_url at render time.
+set -u
+
+EXPECTED="{{ interface.base_url | replace('resp://', '') }}"
+
+{% if local_testing %}
+# Local / upstream mode: there is no server to reach — the response is
+# produced by the gateway, not an upstream. So this branch always passes;
+# it exists only to confirm the service is wired up.
+echo "connectivity ok (direct-response, no upstream; expects HTTP ${EXPECTED})"
+{% else %}
+# Gateway mode: hit the gateway and assert it returns exactly the
+# requested status code. A resp503 service is "healthy" when the gateway
+# returns 503 — so we compare against the expected code, not a 2xx range.
+CODE=$(curl -s -o /dev/null -w '%{http_code}' \
+    -H "Authorization: Bearer ${UNITYSVC_API_KEY}" \
+    "${SERVICE_BASE_URL}")
+if [ "${CODE}" = "${EXPECTED}" ]; then
+    echo "connectivity ok (HTTP ${CODE})"
+else
+    echo "FAIL: expected HTTP ${EXPECTED}, got ${CODE}" >&2
+    exit 1
+fi
+{% endif %}
