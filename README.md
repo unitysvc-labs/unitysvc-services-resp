@@ -41,9 +41,11 @@ curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
 curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
      "$API_GATEWAY_BASE_URL/l/resp200"
 
-# Failover: treat resp503 as a failed primary and fall over to a real service.
+# Failover: use resp503 as a guaranteed-failing primary to exercise the
+# fall-over path — the gateway returns 503, /f/ treats that as a failure
+# and serves the _else target instead.
 curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
-     "$API_GATEWAY_BASE_URL/f/resp503,p/openai"
+     "$API_GATEWAY_BASE_URL/f/resp503?_else=p/openai"
 
 # Tee: mirror a copy of the request to a resp200 sink.
 curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
