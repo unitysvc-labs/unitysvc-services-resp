@@ -1,6 +1,6 @@
 contact_email = "support@unitysvc.com"
 homepage = "https://unitysvc.com"
-name = "unitysvc-resp"
+name = "unitysvc"
 schema = "provider_v1"
 status = "ready"
 terms_of_service = "https://unitysvc.com/terms/"

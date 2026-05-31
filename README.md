@@ -68,7 +68,7 @@ auth + routing path without touching any upstream.
 ```
 data/
   README.md                       # per-service detail
-  unitysvc-resp/
+  unitysvc/
     provider.toml                 # provider metadata
     docs/
       connectivity.sh.j2          # shared connectivity test (local + gateway)

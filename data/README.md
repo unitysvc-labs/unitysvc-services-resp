@@ -1,6 +1,6 @@
 # Direct-Response (`resp://`) Services
 
-This folder holds **direct-response** services under `unitysvc-resp/`. Each one
+This folder holds **direct-response** services under `unitysvc/`. Each one
 returns a fixed HTTP status code straight from the UnitySVC gateway — no real
 upstream is ever contacted.
 
@@ -28,7 +28,7 @@ composes with the logging (`/l/`), failover (`/f/`), and tee (`/t/`) primitives.
   `resp://` scheme and produces the response without an upstream hop.
 - **listing.json** — a free (`list_price: 0`) listing whose gateway path is
   `${API_GATEWAY_BASE_URL}/resp<status>`. The connectivity test is shared from
-  `unitysvc-resp/docs/connectivity.sh.j2`.
+  `unitysvc/docs/connectivity.sh.j2`.
 
 ## Connectivity test
 
