@@ -4,20 +4,23 @@
 # These services have NO real upstream. The offering's base_url is
 # "resp://<status>", so the UnitySVC gateway synthesizes a <status>
 # response itself instead of proxying anywhere (unitysvc/unitysvc#1188).
-# The expected status is read from that base_url at render time.
+#
+# The expected status is the 3-digit code in the service path
+# (.../resp<status>), parsed at runtime from $SERVICE_BASE_URL. We do NOT
+# read it from a Jinja interface var: in gateway-test mode that resolves to
+# the gateway URL (.../resp503), not the upstream "resp://503".
 set -u
-
-EXPECTED="{{ interface.base_url | replace('resp://', '') }}"
 
 {% if local_testing %}
 # Local / upstream mode: there is no server to reach — the response is
 # produced by the gateway, not an upstream. So this branch always passes;
 # it exists only to confirm the service is wired up.
-echo "connectivity ok (direct-response, no upstream; expects HTTP ${EXPECTED})"
+echo "connectivity ok (direct-response, no upstream)"
 {% else %}
-# Gateway mode: hit the gateway and assert it returns exactly the
-# requested status code. A resp503 service is "healthy" when the gateway
-# returns 503 — so we compare against the expected code, not a 2xx range.
+# Gateway mode: hit the gateway and assert it returns exactly the requested
+# status code. A resp503 service is "healthy" when the gateway returns 503 —
+# so we compare against the expected code, not a 2xx range.
+EXPECTED=$(echo "${SERVICE_BASE_URL}" | sed -E 's#.*resp([0-9]{3}).*#\1#')
 CODE=$(curl -s -o /dev/null -w '%{http_code}' \
     -H "Authorization: Bearer ${UNITYSVC_API_KEY}" \
     "${SERVICE_BASE_URL}")
