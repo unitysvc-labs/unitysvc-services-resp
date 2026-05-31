@@ -56,10 +56,12 @@ curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
 Because the response is produced inside the normal gateway path, `/l/` logs it,
 `/f/` can fall over from it, and `/t/` can mirror to it.
 
-In practice the usage base is narrow: `/l/resp200` (log a request with no real
-upstream) is the headline case; `resp5xx` as a failing `/f/` primary and
-`resp200` as a `/t/` sink are mainly testing aids. A bare `/resp<status>` is
-rarely useful on its own.
+Direct-response services compose naturally with the primitives: `/l/resp200`
+(log a request with no real upstream) is the headline case, `resp5xx` makes a
+guaranteed-failing `/f/` primary, and `resp200` makes a `/t/` sink. A bare
+`/resp200` is useful too — as a gateway placeholder while a real upstream is
+being wired up, and as a lightweight health check that exercises the full
+auth + routing path without touching any upstream.
 
 ## Repository layout
 
