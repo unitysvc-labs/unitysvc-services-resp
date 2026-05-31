@@ -47,13 +47,19 @@ curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
 curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
      "$API_GATEWAY_BASE_URL/f/resp503?_else=p/openai"
 
-# Tee: mirror a copy of the request to a resp200 sink.
+# Tee: mirror a copy of a real request to a resp200 sink (the sink just
+# swallows the mirrored call and returns 200; _to names the tee target).
 curl -H "Authorization: Bearer $UNITYSVC_API_KEY" \
-     "$API_GATEWAY_BASE_URL/t/resp200"
+     "$API_GATEWAY_BASE_URL/t/p/openai?_to=resp200"
 ```
 
 Because the response is produced inside the normal gateway path, `/l/` logs it,
-`/f/` can fail over from/to it, and `/t/` can mirror to it.
+`/f/` can fall over from it, and `/t/` can mirror to it.
+
+In practice the usage base is narrow: `/l/resp200` (log a request with no real
+upstream) is the headline case; `resp5xx` as a failing `/f/` primary and
+`resp200` as a `/t/` sink are mainly testing aids. A bare `/resp<status>` is
+rarely useful on its own.
 
 ## Repository layout
 
