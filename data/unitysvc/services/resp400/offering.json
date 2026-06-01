@@ -5,7 +5,7 @@
   "description": "Direct-response service that always returns HTTP 400 (Bad Request) from the gateway with no upstream call \u2014 client-error response for negative-path testing. Backed by the reserved resp://400 upstream scheme (unitysvc/unitysvc#1188).",
   "name": "resp400",
   "schema": "offering_v1",
-  "service_type": "proxy",
+  "service_type": "gateway",
   "status": "ready",
   "tags": [
     "gateway",

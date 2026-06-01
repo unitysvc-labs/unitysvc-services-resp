@@ -5,7 +5,7 @@
   "description": "Direct-response service that always returns HTTP 200 (OK) from the gateway with no upstream call \u2014 success sink \u2014 close the request loop with a 200 and no upstream. Backed by the reserved resp://200 upstream scheme (unitysvc/unitysvc#1188).",
   "name": "resp200",
   "schema": "offering_v1",
-  "service_type": "proxy",
+  "service_type": "gateway",
   "status": "ready",
   "tags": [
     "gateway",
