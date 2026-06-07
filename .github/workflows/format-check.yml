@@ -2,8 +2,6 @@ name: Format Check
 
 # Thin caller — logic lives in the shared reusable workflow so a fix lands
 # once for all unitysvc-services-* repos. See unitysvc-labs/.github.
-# NOTE: pinned to the @reusable-seller-workflows branch for the pilot; flip to
-# @main once unitysvc-labs/.github#3 is merged.
 
 on:
   workflow_dispatch:
@@ -14,4 +12,4 @@ on:
 
 jobs:
   format-check:
-    uses: unitysvc-labs/.github/.github/workflows/seller-format-check.yml@reusable-seller-workflows
+    uses: unitysvc-labs/.github/.github/workflows/seller-format-check.yml@main

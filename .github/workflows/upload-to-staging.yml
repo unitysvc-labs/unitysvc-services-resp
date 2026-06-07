@@ -2,8 +2,6 @@ name: Upload Data to Staging
 
 # Thin caller — logic lives in the shared reusable workflow so a fix lands
 # once for all unitysvc-services-* repos. See unitysvc-labs/.github.
-# NOTE: pinned to the @reusable-seller-workflows branch for the pilot; flip to
-# @main once unitysvc-labs/.github#3 is merged.
 
 on:
   pull_request:
@@ -16,5 +14,5 @@ jobs:
     if: github.event.pull_request.merged == true
     permissions:
       contents: write  # needed to push override files back to main
-    uses: unitysvc-labs/.github/.github/workflows/seller-upload-staging.yml@reusable-seller-workflows
+    uses: unitysvc-labs/.github/.github/workflows/seller-upload-staging.yml@main
     secrets: inherit
