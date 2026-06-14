@@ -10,14 +10,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - "data/**"
+      - "specs/**"
       - ".github/workflows/validate-data.yml"
   push:
     branches: [main]
     paths:
-      - "data/**"
+      - "specs/**"
       - ".github/workflows/validate-data.yml"
 
 jobs:
   validate-data:
-    uses: unitysvc-labs/.github/.github/workflows/seller-validate-data.yml@reusable-seller-workflows
+    uses: unitysvc-labs/.github/.github/workflows/seller-validate-data.yml@main

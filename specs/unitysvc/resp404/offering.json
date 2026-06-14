@@ -1,0 +1,21 @@
+{
+  "capabilities": [
+    "http_relay"
+  ],
+  "description": "Direct-response service that always returns HTTP 404 (Not Found) from the gateway with no upstream call \u2014 client-error response for negative-path testing. Backed by the reserved resp://404 upstream scheme (unitysvc/unitysvc#1188).",
+  "name": "resp404",
+  "service_type": "gateway",
+  "status": "ready",
+  "tags": [
+    "gateway",
+    "test",
+    "direct-response"
+  ],
+  "time_created": "2026-05-31T00:00:00Z",
+  "upstream_access_config": {
+    "direct_response": {
+      "access_method": "http",
+      "base_url": "resp://404"
+    }
+  }
+}

@@ -12,9 +12,7 @@ on:
 
 jobs:
   upload:
-    # Only run if the PR was merged (not just closed)
-    if: github.event.pull_request.merged == true
-    permissions:
-      contents: write  # needed to push override files back to main
-    uses: unitysvc-labs/.github/.github/workflows/seller-upload-staging.yml@reusable-seller-workflows
+    uses: unitysvc-labs/.github/.github/workflows/seller-upload-staging.yml@main
     secrets: inherit
+    permissions:
+      contents: write
