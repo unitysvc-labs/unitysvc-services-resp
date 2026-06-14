@@ -14,4 +14,4 @@ on:
 
 jobs:
   format-check:
-    uses: unitysvc-labs/.github/.github/workflows/seller-format-check.yml@reusable-seller-workflows
+    uses: unitysvc-labs/.github/.github/workflows/seller-format-check.yml@main

@@ -1,0 +1,31 @@
+{
+  "currency": "USD",
+  "display_name": "Direct Response 503 (Service Unavailable)",
+  "documents": {
+    "Connectivity test": {
+      "category": "connectivity_test",
+      "description": "Assert the gateway returns HTTP 503",
+      "file_path": "connectivity.sh.j2",
+      "is_active": true,
+      "is_public": false,
+      "meta": {
+        "output_contains": "connectivity ok"
+      },
+      "mime_type": "bash"
+    }
+  },
+  "list_price": {
+    "description": "Free \u2014 synthetic gateway response, no upstream cost",
+    "price": "0",
+    "type": "constant"
+  },
+  "name": "unitysvc/resp503",
+  "status": "ready",
+  "time_created": "2026-05-31T00:00:00Z",
+  "user_access_interfaces": {
+    "http_gateway": {
+      "access_method": "http",
+      "base_url": "${API_GATEWAY_BASE_URL}/resp503"
+    }
+  }
+}
