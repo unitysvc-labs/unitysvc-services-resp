@@ -1,0 +1,22 @@
+{
+  "name": "{{ service_name }}",
+  "display_name": "Direct Response {{ status }} ({{ label }})",
+  "currency": "USD",
+  "status": "ready",
+  "time_created": "2026-05-31T00:00:00Z",
+  "list_price": { "type": "constant", "price": "0", "description": "Free — synthetic gateway response, no upstream cost" },
+  "user_access_interfaces": {
+    "http_gateway": { "access_method": "http", "base_url": "${API_GATEWAY_BASE_URL}/resp{{ status }}" }
+  },
+  "documents": {
+    "Connectivity test": {
+      "category": "connectivity_test",
+      "description": "Assert the gateway returns HTTP {{ status }}",
+      "file_path": "connectivity.sh.j2",
+      "is_active": true,
+      "is_public": false,
+      "meta": { "output_contains": "connectivity ok" },
+      "mime_type": "bash"
+    }
+  }
+}

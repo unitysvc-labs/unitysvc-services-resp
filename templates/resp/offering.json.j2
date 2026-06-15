@@ -1,0 +1,12 @@
+{
+  "name": "resp{{ status }}",
+  "service_type": "gateway",
+  "capabilities": ["http_relay"],
+  "description": "Direct-response service that always returns HTTP {{ status }} ({{ label }}) from the gateway with no upstream call — {{ blurb }}. Backed by the reserved resp://{{ status }} upstream scheme (unitysvc/unitysvc#1188).",
+  "status": "ready",
+  "tags": ["gateway", "test", "direct-response"],
+  "time_created": "2026-05-31T00:00:00Z",
+  "upstream_access_config": {
+    "direct_response": { "access_method": "http", "base_url": "resp://{{ status }}" }
+  }
+}

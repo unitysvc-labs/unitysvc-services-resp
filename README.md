@@ -65,37 +65,39 @@ auth + routing path without touching any upstream.
 
 ## Repository layout
 
+The six services are nearly identical — they differ only in an HTTP `status`, a
+`label`, and a one-line `blurb` — so they're authored as **param files** rendered
+through one shared template, not six copies of `offering.json` + `listing.json`
+(see [unitysvc-sellers#90](https://github.com/unitysvc/unitysvc-sellers/pull/90)).
+
 ```
-data/
-  README.md                       # per-service detail
-  unitysvc/
-    provider.toml                 # provider metadata
-    docs/
-      connectivity.sh.j2          # shared connectivity test (local + gateway)
-    services/
-      resp200/ { offering.json, listing.json }
-      resp400/ ...
-      resp404/ ...
-      resp429/ ...
-      resp500/ ...
-      resp503/ ...
+templates/resp/                   # one parameterized template for all six
+  provider.json                   # static provider metadata
+  offering.json.j2                # {{ status }} {{ label }} {{ blurb }}
+  listing.json.j2                 # {{ status }} {{ label }} → connectivity.sh.j2
+  connectivity.sh.j2              # shared connectivity test (local + gateway)
+specs/unitysvc/
+  resp200.json                    # { "template": "resp", "parameters": { "status": 200, "label": "OK", … } }
+  resp200.service.json            # backend service_id (sidecar; committed)
+  resp400.json … resp503.json     # + their .service.json sidecars
 ```
+
+The generated `offering.json` / `listing.json` are **never committed** — they're
+rendered in memory from the param file + template each time `specs` runs. Only
+the param files, their sidecars, and the template are tracked.
 
 ## Local development
 
 ```bash
-pip install unitysvc-sellers
+pip install "unitysvc-sellers>=0.2.4"      # param-file rendering
 
-# Validate schemas + file references
-usvc_seller data validate
+# Validate schemas + file references (renders each param file first)
+usvc_seller specs validate
 
 # Check / apply formatting (alphabetical keys, 2-space indent)
-usvc_seller data format --check
-usvc_seller data format
+usvc_seller specs format --check
+usvc_seller specs format
 
 # Run the connectivity tests against the upstream (resp:// → passes directly)
-usvc_seller data run-tests
+usvc_seller specs run-tests
 ```
-
-Mirrors the structure of the other `unitysvc-services-*` data repos (e.g.
-`unitysvc-services-demo`); see that repo for richer authoring examples.
