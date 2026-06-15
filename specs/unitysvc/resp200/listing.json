@@ -5,7 +5,7 @@
     "Connectivity test": {
       "category": "connectivity_test",
       "description": "Assert the gateway returns HTTP 200",
-      "file_path": "connectivity.sh.j2",
+      "file_path": "../../../docs/connectivity.sh.j2",
       "is_active": true,
       "is_public": false,
       "meta": {
