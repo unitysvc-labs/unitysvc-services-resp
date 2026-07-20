@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "blurb": "client-error response for negative-path testing",
+    "label": "Not Found",
+    "status": 404
+  },
+  "template": "resp"
+}

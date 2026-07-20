@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "blurb": "rate-limit response for backoff/retry testing",
+    "label": "Too Many Requests",
+    "status": 429
+  },
+  "template": "resp"
+}

@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "blurb": "success sink \u2014 close the request loop with a 200 and no upstream",
+    "label": "OK",
+    "status": 200
+  },
+  "template": "resp"
+}

@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "blurb": "server-error response; use as a failing /f/ member",
+    "label": "Internal Server Error",
+    "status": 500
+  },
+  "template": "resp"
+}

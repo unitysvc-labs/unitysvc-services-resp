@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "blurb": "server-error response; use as a failing /f/ member",
+    "label": "Service Unavailable",
+    "status": 503
+  },
+  "template": "resp"
+}
