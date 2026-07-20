@@ -1,3 +1,7 @@
 {
-  "service_id": "094b8007-7b26-40a4-99bb-f9921e23123d"
+  "display_name": "Direct Response 404 (Not Found)",
+  "name": "unitysvc/resp404",
+  "service_id": "094b8007-7b26-40a4-99bb-f9921e23123d",
+  "status": "created",
+  "time_created": "2026-07-20T05:34:57.914959Z"
 }

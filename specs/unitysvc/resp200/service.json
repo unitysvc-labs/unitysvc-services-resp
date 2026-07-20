@@ -1,3 +1,7 @@
 {
-  "service_id": "cfe7d11e-5313-4e10-811f-a33d2e7a5d88"
+  "display_name": "Direct Response 200 (OK)",
+  "name": "unitysvc/resp200",
+  "service_id": "cfe7d11e-5313-4e10-811f-a33d2e7a5d88",
+  "status": "created",
+  "time_created": "2026-07-20T05:34:57.712641Z"
 }
