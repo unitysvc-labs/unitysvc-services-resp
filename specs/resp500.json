@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "server-error response; use as a failing /f/ member",
+    "blurb": "Use it as a guaranteed-failing target: an /f/ primary that always falls over to its _else service, or 5xx branch coverage for your error handling.",
     "label": "Internal Server Error",
     "status": 500
   },

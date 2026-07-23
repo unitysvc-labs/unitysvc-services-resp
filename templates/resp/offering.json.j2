@@ -2,7 +2,7 @@
   "name": "resp{{ status }}",
   "service_type": "gateway",
   "capabilities": ["http_relay"],
-  "description": "Direct-response service that always returns HTTP {{ status }} ({{ label }}) from the gateway with no upstream call — {{ blurb }}. Backed by the reserved resp://{{ status }} upstream scheme (unitysvc/unitysvc#1188).",
+  "description": "Always returns HTTP {{ status }} ({{ label }}), straight from the UnitySVC gateway — no upstream is ever contacted.\n\nThe reply is instant, free, and identical every time. {{ blurb }} Because the response is still produced inside the normal request pipeline, it composes with the gateway's routing primitives: /l/ logging, /f/ failover, /t/ tee.",
   "status": "ready",
   "tags": ["gateway", "test", "direct-response"],
   "time_created": "2026-05-31T00:00:00Z",

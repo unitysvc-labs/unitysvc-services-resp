@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "rate-limit response for backoff/retry testing",
+    "blurb": "Use it to exercise rate-limit handling \u2014 backoff, retry, and Retry-After logic \u2014 without tripping a real provider's quota.",
     "label": "Too Many Requests",
     "status": 429
   },

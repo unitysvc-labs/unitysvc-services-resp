@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "client-error response for negative-path testing",
+    "blurb": "Use it to exercise client-error handling on the negative path \u2014 error surfacing, retry policy, 4xx branch coverage \u2014 without waiting for a real service to misbehave.",
     "label": "Bad Request",
     "status": 400
   },
