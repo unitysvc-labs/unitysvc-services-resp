@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Use it to exercise client-error handling on the negative path \u2014 error surfacing, retry policy, 4xx branch coverage \u2014 without waiting for a real service to misbehave.",
+    "blurb": "Because nothing is forwarded, resp400 gives you a client error on demand, without waiting for a real service to reject something. Use it to test how your code surfaces errors, whether it retries when it should not, and that your 4xx code paths are actually covered.",
     "label": "Bad Request",
     "status": 400
   },

@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Use it as a success sink: an /l/resp200 target that logs a request when there is nothing to forward to, a stand-in while a real upstream is being wired up, or a health check that exercises auth and routing end to end.",
+    "blurb": "Because nothing is forwarded, a call to resp200 costs nothing, never depends on a third party being up, and returns the same 200 OK every time. Use it to test gateway functions such as authentication, routing and logging, and as a placeholder wherever a successful response is required but no real service exists yet \u2014 for example to record a request that has nowhere to forward to.",
     "label": "OK",
     "status": 200
   },

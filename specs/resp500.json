@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Use it as a guaranteed-failing target: an /f/ primary that always falls over to its _else service, or 5xx branch coverage for your error handling.",
+    "blurb": "Because nothing is forwarded, resp500 is a target that is guaranteed to fail. Use it to test how your code handles a server error, and as a deliberately failing service when exercising failover \u2014 the gateway returns 500, so anything watching for a failure will see one.",
     "label": "Internal Server Error",
     "status": 500
   },

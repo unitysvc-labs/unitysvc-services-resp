@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Use it to exercise rate-limit handling \u2014 backoff, retry, and Retry-After logic \u2014 without tripping a real provider's quota.",
+    "blurb": "Because nothing is forwarded, resp429 lets you trigger a rate-limit response on demand instead of burning a real provider's quota to produce one. Use it to test backoff and retry logic, and to confirm your client slows down rather than hammering an endpoint.",
     "label": "Too Many Requests",
     "status": 429
   },
