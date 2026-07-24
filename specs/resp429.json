@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "resp429 simulates an upstream service that is always rate-limiting you with 429 Too Many Requests. Because nothing is forwarded, you can trigger the response on demand instead of burning a real provider's quota to produce one. Use it to test backoff and retry logic, and to confirm your client slows down rather than hammering an endpoint.",
+    "blurb": "`resp429` simulates an upstream service that is always rate-limiting you with 429 Too Many Requests. Because nothing is forwarded, you can trigger the response on demand instead of burning a real provider's quota to produce one. Use it to test backoff and retry logic, and to confirm your client slows down rather than hammering an endpoint.",
     "label": "Too Many Requests",
     "status": 429
   },

@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "resp400 simulates an upstream service that always rejects the request with 400 Bad Request. Because nothing is forwarded, you get a client error on demand instead of waiting for a real service to reject something. Use it to test how your code surfaces errors, whether it retries when it should not, and that your 4xx code paths are actually covered.",
+    "blurb": "`resp400` simulates an upstream service that always rejects the request with 400 Bad Request. Because nothing is forwarded, you get a client error on demand instead of waiting for a real service to reject something. Use it to test how your code surfaces errors, whether it retries when it should not, and that your 4xx code paths are actually covered.",
     "label": "Bad Request",
     "status": 400
   },

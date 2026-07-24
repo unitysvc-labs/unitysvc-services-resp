@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "resp500 simulates an upstream service that always fails with 500 Internal Server Error. Because nothing is forwarded, it is a target guaranteed to fail every time. Use it to test how your code handles a server error, and as a deliberately failing service when exercising failover.",
+    "blurb": "`resp500` simulates an upstream service that always fails with 500 Internal Server Error. Because nothing is forwarded, it is a target guaranteed to fail every time. Use it to test how your code handles a server error, and as a deliberately failing service when exercising failover.",
     "label": "Internal Server Error",
     "status": 500
   },

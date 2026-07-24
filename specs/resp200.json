@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "resp200 simulates an upstream service that always returns 200 OK. Because nothing is forwarded, the call costs nothing, never depends on a third party being up, and gives the same answer every time. Use it to test gateway functions such as authentication, routing and logging, and as a placeholder wherever a successful response is required but no real service exists yet.",
+    "blurb": "`resp200` simulates an upstream service that always returns 200 OK. Because nothing is forwarded, the call costs nothing, never depends on a third party being up, and gives the same answer every time. Use it to test gateway functions such as authentication, routing and logging, and as a placeholder wherever a successful response is required but no real service exists yet.",
     "label": "OK",
     "status": 200
   },
