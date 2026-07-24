@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "resp503 simulates an upstream service that is always down, returning 503 Service Unavailable. Nothing is forwarded, so it is a target guaranteed to fail every time. Use it to test how your code handles an unavailable service, and as a deliberately failing service when exercising failover.",
+    "blurb": "resp503 simulates an upstream service that is always down, returning 503 Service Unavailable. Because nothing is forwarded, it is a target guaranteed to fail every time. Use it to test how your code handles an unavailable service, and as a deliberately failing service when exercising failover.",
     "label": "Service Unavailable",
     "status": 503
   },
