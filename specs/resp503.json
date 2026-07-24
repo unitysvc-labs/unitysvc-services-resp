@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Because nothing is forwarded, resp503 is a target that is guaranteed to fail. Use it to test how your code handles an unavailable service, and as a deliberately failing service when exercising failover \u2014 the gateway returns 503, so anything watching for a failure will see one.",
+    "blurb": "resp503 simulates an upstream service that is always down, returning 503 Service Unavailable. Nothing is forwarded, so it is a target guaranteed to fail every time. Use it to test how your code handles an unavailable service, and as a deliberately failing service when exercising failover.",
     "label": "Service Unavailable",
     "status": 503
   },

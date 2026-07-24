@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Because nothing is forwarded, a call to resp200 costs nothing, never depends on a third party being up, and returns the same 200 OK every time. Use it to test gateway functions such as authentication, routing and logging, and as a placeholder wherever a successful response is required but no real service exists yet \u2014 for example to record a request that has nowhere to forward to.",
+    "blurb": "resp200 simulates an upstream service that always returns 200 OK. Nothing is forwarded, so the call costs nothing, never depends on a third party being up, and gives the same answer every time. Use it to test gateway functions such as authentication, routing and logging, and as a placeholder wherever a successful response is required but no real service exists yet.",
     "label": "OK",
     "status": 200
   },

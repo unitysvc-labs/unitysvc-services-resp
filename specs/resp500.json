@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "Because nothing is forwarded, resp500 is a target that is guaranteed to fail. Use it to test how your code handles a server error, and as a deliberately failing service when exercising failover \u2014 the gateway returns 500, so anything watching for a failure will see one.",
+    "blurb": "resp500 simulates an upstream service that always fails with 500 Internal Server Error. Nothing is forwarded, so it is a target guaranteed to fail every time. Use it to test how your code handles a server error, and as a deliberately failing service when exercising failover.",
     "label": "Internal Server Error",
     "status": 500
   },
