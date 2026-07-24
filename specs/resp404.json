@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "blurb": "client-error response for negative-path testing",
+    "blurb": "`resp404` simulates an upstream service that always reports the resource as missing with 404 Not Found. Because nothing is forwarded, you get a not-found response on demand instead of needing a real endpoint to disappear. Use it to test how your code handles a resource that is not there \u2014 error surfacing, fallback behaviour, and 4xx code paths.",
     "label": "Not Found",
     "status": 404
   },
