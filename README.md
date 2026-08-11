@@ -71,12 +71,12 @@ through one shared template, not six copies of `offering.json` + `listing.json`
 (see [unitysvc-sellers#90](https://github.com/unitysvc/unitysvc-sellers/pull/90)).
 
 ```
-templates/resp/                   # one parameterized template for all six
+services/templates/resp/                   # one parameterized template for all six
   provider.json                   # static provider metadata
   offering.json.j2                # {{ status }} {{ label }} {{ blurb }}
   listing.json.j2                 # {{ status }} {{ label }} → connectivity.sh.j2
   connectivity.sh.j2              # shared connectivity test (local + gateway)
-specs/unitysvc/
+services/specs/unitysvc/
   resp200.json                    # { "template": "resp", "parameters": { "status": 200, "label": "OK", … } }
   resp200.service.json            # backend service_id (sidecar; committed)
   resp400.json … resp503.json     # + their .service.json sidecars
