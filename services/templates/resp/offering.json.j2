@@ -1,7 +1,16 @@
 {
   "name": "resp{{ status }}",
-  "service_type": "gateway",
-  "capabilities": ["http_relay"],
+{#- `proxy`, not `gateway`: no platform group matches `gateway`, so these
+    services reached the catalog only through the provider-keyed "System" group
+    and were absent from Proxy / Relay entirely.
+
+    `sink` rather than `http_relay` — which was both the wrong capability and
+    the wrong spelling (the vocabulary is hyphenated). These services forward
+    nothing: the request terminates at the gateway via the reserved
+    `resp://<status>` upstream scheme (unitysvc#1188) and a preset status comes
+    back. Calling that a relay claimed the one behaviour they do not have. #}
+  "service_type": "proxy",
+  "capabilities": ["sink"],
   "summary": "`resp{{ status }}` is a system service: the gateway stops routing the request to an upstream provider and returns {{ status }} {{ label }} directly.",
   "description": "{{ blurb }} Sending a request to `https://api.svcpass.com/resp{{ status }}` with your API key returns {{ status }} {{ label }} immediately.",
   "status": "ready",
