@@ -2,6 +2,7 @@
   "parameters": {
     "blurb": "`resp503` simulates an upstream service that is always down, returning 503 Service Unavailable. Because nothing is forwarded, it is a target guaranteed to fail every time. Use it to test how your code handles an unavailable service, and as a deliberately failing service when exercising failover.",
     "label": "Service Unavailable",
+    "logo": "https://api.iconify.design/mdi:server-off.svg?color=%23DC2626",
     "status": 503
   },
   "template": "resp"

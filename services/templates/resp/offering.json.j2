@@ -11,6 +11,12 @@
     back. Calling that a relay claimed the one behaviour they do not have. #}
   "service_type": "proxy",
   "capabilities": ["sink"],
+{#- A per-offering logo. The catalog resolves a card icon as
+    offering_logo -> provider_logo -> seller_logo, so without this every
+    resp* row fell back to the shared unitysvc provider avatar and the six
+    services were indistinguishable at a glance. Each status now carries an
+    icon + colour for its class: 2xx green, 4xx amber, 429 orange, 5xx red. #}{% if logo %}
+  "logo": {{ logo | tojson }},{% endif %}
   "summary": "`resp{{ status }}` is a system service: the gateway stops routing the request to an upstream provider and returns {{ status }} {{ label }} directly.",
   "description": "{{ blurb }} Sending a request to `https://api.svcpass.com/resp{{ status }}` with your API key returns {{ status }} {{ label }} immediately.",
   "status": "ready",
