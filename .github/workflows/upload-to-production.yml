@@ -2,15 +2,19 @@ name: Upload Data to Production
 
 # Thin caller — logic lives in the shared reusable workflow so a fix lands
 # once for all unitysvc-services-* repos. See unitysvc-labs/.github.
-# Manual-only: production uploads are deliberate, never PR-triggered.
+# Production uploads run manually or after a pull request is merged.
 # NOTE: pinned to the @reusable-seller-workflows branch for the pilot; flip to
 # @main once unitysvc-labs/.github#3 is merged.
 
 on:
+  pull_request:
+    types: [closed]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   upload:
+    if: github.event_name != 'pull_request' || github.event.pull_request.merged == true
     uses: unitysvc-labs/.github/.github/workflows/seller-upload-production.yml@main
     secrets: inherit
     permissions:
